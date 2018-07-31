@@ -3,12 +3,13 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import './App.css'
 import Scroll from '../components/Scroll';
+import {robots} from './robots'
 
 class App extends Component {
 	constructor(){
 		super()
 		this.state={
-			robots:[],
+			robots:robots,
 			searchfield: ''
 		}
 			}
@@ -29,7 +30,7 @@ class App extends Component {
 						return robot.name.toLowerCase().includes(searchfield.toLowerCase())
 							})
 				return !robots.length?
-					<h1>Waiting</h1>:
+					<h1>Loading</h1>:
 				(
 	 			<div className='tc'>
 					<h1 className='f2'>RoboFriends</h1>

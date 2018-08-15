@@ -3,16 +3,15 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import './App.css'
 import Scroll from '../components/Scroll';
-import {robots} from './robots'
 
 class App extends Component {
 	constructor(){
 		super()
 		this.state={
-			robots:robots,
+			robots:[],
 			searchfield: ''
 		}
-			}
+	}
 
 	componentDidMount(){
 		fetch('http://jsonplaceholder.typicode.com/users')

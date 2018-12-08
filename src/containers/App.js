@@ -6,7 +6,7 @@ import Scroll from '../components/Scroll';
 
 class App extends Component {
 	constructor(){
-		super()
+		super();
 		this.state={
 			robots:[],
 			searchfield: ''
@@ -15,22 +15,21 @@ class App extends Component {
 
 	componentDidMount(){
 		fetch('https://jsonplaceholder.typicode.com/users')
-		.then(response=>{return response.json();})
-		.then(users=>{this.setState({robots:users})})
-
+		.then(response=>response.json())
+		.then( robots => this.setState({robots}) )
 	}
 
-	onSearchChange=(event)=>{
-		this.setState({searchfield:event.target.value})
-				}
+	onSearchChange = (event) => {
+		this.setState( {searchfield: event.target.value} )
+	}
 				
 	render(){
 				const{robots,searchfield}=this.state;
-				const filteredRobots =robots.filter(robot=>{
-						return robot.name.toLowerCase().includes(searchfield.toLowerCase())
-				})
+				const filteredRobots =robots.filter(robot=>
+						robot.name.toLowerCase().includes( searchfield.toLowerCase() )
+				)
 				
-				return !robots.length?
+		return !robots.length?
 					<h1>Loading</h1>:
 				(
 	 			<div className='tc'>
